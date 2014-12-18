@@ -13,7 +13,7 @@ RSpec.describe Restaurant, :type => :model do
     expect(restaurant).to have(1).error_on(:name)
   end
 
-describe 'average rating' do
+describe '#average rating' do
   
   context 'no reviews' do
     it 'returns "N/A" when there are no reviews' do
@@ -37,12 +37,6 @@ describe 'average rating' do
     restaurant.reviews.create(rating: 5)
     expect(restaurant.average_rating).to eq 3
     end
-  end
-
-  scenario 'displays an average rating for all reviews' do
-    leave_review('so so', '3')
-    leave_review('Great!', '5')
-    expect(page).to have_content('Average rating: ★★★★☆')
   end
 
 end
